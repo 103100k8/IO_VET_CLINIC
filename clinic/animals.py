@@ -3,6 +3,8 @@ from datetime import date
 class Animal:
     """Reprezentuje zwierzę pacjenta w gabinecie weterynaryjnym."""
 
+    _id_counter = 1
+
     def __init__(self, name: str, species: str, breed: str, birth_date: date, owner_id: int) -> None:
         """
         Args:
@@ -17,6 +19,8 @@ class Animal:
         self.breed = breed
         self.birth_date = birth_date
         self.owner_id = owner_id
+        self.animal_id = Animal._id_counter
+        Animal._id_counter = Animal._id_counter +1
 
     def age(self) -> int:
         """Zwraca wiek zwierzęcia w latach"""
