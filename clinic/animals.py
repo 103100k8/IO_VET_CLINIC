@@ -20,7 +20,11 @@ class Animal:
         self.birth_date = birth_date
         self.owner_id = owner_id
         self.animal_id = Animal._id_counter
-        Animal._id_counter +=1
+        Animal._id_counter += 1
+
+    @classmethod
+    def reset_id_counter(cls) -> None:
+        cls._id_counter = 1
 
     def age(self) -> int:
         """Zwraca wiek zwierzęcia w latach"""
