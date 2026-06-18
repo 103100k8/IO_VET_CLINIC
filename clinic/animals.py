@@ -20,7 +20,7 @@ class Animal:
         self.birth_date = birth_date
         self.owner_id = owner_id
         self.animal_id = Animal._id_counter
-        Animal._id_counter = Animal._id_counter +1
+        Animal._id_counter +=1
 
     def age(self) -> int:
         """Zwraca wiek zwierzęcia w latach"""
@@ -31,4 +31,4 @@ class Animal:
 
     def __repr__(self) -> str:
         """Zwraca podstawowe informacje charakterystyczne o zwierzęciu tzn imię i gatunek"""
-        return f"Animal(name={self.name!r}, species={self.species!r})"
+        return f"Animal(id={self.animal_id}, name={self.name!r}, species={self.species!r})"
