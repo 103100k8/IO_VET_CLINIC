@@ -21,7 +21,7 @@ class MedicalRecord:
         """dodaje chorobe do hisrotii zwierzęcia"""
         if vaccination_date is None:
             vaccination_date = date.today()
-        self.vaccination.append(f"{name} ({vaccination_date})")
+        self.vaccinations.append(f"{name} ({vaccination_date})")
 
     def add_note(self, note: str) -> None:
         """Dodaje notatkę medyczną z wizyty"""
