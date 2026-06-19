@@ -10,7 +10,7 @@ class Doctor:
         self.phone = phone
 
     def get_info(self) -> str:
-    """ zwraca informacje o lekarzu w formie tekstowej """
+        """ zwraca informacje o lekarzu w formie tekstowej """
         return (
             f"Dr {self.name} {self.surname}, "
             f"Specjalizacja: {self.specialization}, "
