@@ -3,6 +3,8 @@ from datetime import date
 class Animal:
     """Reprezentuje zwierzę pacjenta w gabinecie weterynaryjnym."""
 
+    _id_counter = 1
+
     def __init__(self, name: str, species: str, breed: str, birth_date: date, owner_id: int) -> None:
         """
         Args:
@@ -17,7 +19,12 @@ class Animal:
         self.breed = breed
         self.birth_date = birth_date
         self.owner_id = owner_id
-        self.medical_history: list[str] = []
+        self.animal_id = Animal._id_counter
+        Animal._id_counter += 1
+
+    @classmethod
+    def reset_id_counter(cls) -> None:
+        cls._id_counter = 1
 
     def age(self) -> int:
         """Zwraca wiek zwierzęcia w latach"""
@@ -26,10 +33,6 @@ class Animal:
             (today.month, today.day) < (self.birth_date.month, self.birth_date.day)
         )
 
-    def add_medical_note(self, note: str) -> None:
-        """Dodaje wpis do historii medycznej"""
-        self.medical_history.append(note)
-
     def __repr__(self) -> str:
         """Zwraca podstawowe informacje charakterystyczne o zwierzęciu tzn imię i gatunek"""
-        return f"Animal(name={self.name!r}, species={self.species!r})"
+        return f"Animal(id={self.animal_id}, name={self.name!r}, species={self.species!r})"
