@@ -19,3 +19,8 @@ class Doctor:
     def update_phone(self, new_phone: str) -> None:
         """Aktualizuje numer telefonu lekarza."""
         self.phone = new_phone
+    
+    def __repr__(self) -> str:
+        return(
+            f"Doctor(id={self.id}, name={self.name} {self.surname})"
+        )
