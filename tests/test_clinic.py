@@ -80,3 +80,18 @@ def test_full_flow():
     assert len(clinic.doctors) == 1
     assert len(clinic.appointments) == 1
     assert len(clinic.records) == 1
+
+def test_full_flow_with_medical_history():
+    clinic = Clinic("k8vet", "Poznan")
+
+    owner = Owner(1, "Jan", "Kowalski", "123", "jan@mail.com")
+    animal = Animal("Ciapek", "pies", "Jamnik", date(2022, 1, 1), owner.owner_id)
+
+    record = MedicalRecord(animal.animal_id)
+    record.add_disease("grypa")
+
+    clinic.add_owner(owner)
+    clinic.add_animal(animal)
+    clinic.add_medical_record(record)
+
+    assert len(clinic.records[0].diseases) == 1
