@@ -1,21 +1,21 @@
 class Doctor:
     """ lekarz pracujący w klinice"""
 
-    """Tworzy obiekt lekarza z podstawowymi danymi identyfikacyjnymi."""
     def __init__(self, doctor_id: int, name: str, surname: str, specialization: str, phone: str) -> None:
+        """Tworzy obiekt lekarza z podstawowymi danymi identyfikacyjnymi."""
         self.id = doctor_id
         self.name = name
         self.surname = surname
         self.specialization = specialization
         self.phone = phone
 
-    """ zwraca informacje o lekarzu w formie tekstowej """
     def get_info(self) -> str:
+    """ zwraca informacje o lekarzu w formie tekstowej """
         return (
             f"Dr {self.name} {self.surname}, "
             f"Specjalizacja: {self.specialization}, "
             f"Telefon: {self.phone}")
 
-    """Aktualizuje numer telefonu lekarza."""
     def update_phone(self, new_phone: str) -> None:
+        """Aktualizuje numer telefonu lekarza."""
         self.phone = new_phone
