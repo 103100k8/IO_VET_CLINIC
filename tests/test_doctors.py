@@ -50,3 +50,11 @@ def test_update_phone():
     d.update_phone("999-888-777")
     # sprawdzamy, czy numer został zaktualizowany
     assert d.phone == "999-888-777"
+
+def test_doctor_repr():
+    doctor = Doctor(1, "Anna", "Nowak", "chirurgia", "999")
+
+    rep = repr(doctor)
+
+    assert "Doctor" in rep
+    assert "Anna Nowak" in rep
