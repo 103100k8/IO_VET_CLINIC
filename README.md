@@ -153,7 +153,7 @@ Cała logika aplikacji oparta jest na standardowej bibliotece Pythona (m.in. `da
  
 ## 6. Testowanie i przykład użycia
  
-Testy jednostkowe znajdują się w katalogu `tests` i składają się z jednego pliku testowego przypadającego na każdą klasę. Łącznie stworzono więc 27 takich testów oraz 3 testy integralne, w tym dwa scenariusze w `test_clinic` (`test_full_flow`, `test_full_flow_with_medical_history`). Nie testują one pojedynczej klasy, a cały  proces, sprawdzając całkowitą współpracę między klasami.
+Testy jednostkowe znajdują się w katalogu `tests` i składają się z jednego pliku testowego przypadającego na każdą klasę. Stworzono też 3 testy integralne, w tym dwa scenariusze w `test_clinic` (`test_full_flow`, `test_full_flow_with_medical_history`). Nie testują one pojedynczej klasy, a cały  proces, sprawdzając całkowitą współpracę między klasami. Łącznie powstało więc 27 testów. 
  
 W pliku `test_run.py` znajduje się skrypt demonstrujący prosty przepływ działania programu od rejestringacji właściciela, zwierzaka, lekarza, po umawienie wizyty i dodanie wpisu do historii medycznej.
  
