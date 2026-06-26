@@ -103,13 +103,24 @@ def test_appointment_synergy():
     animal = Animal("Ciapek", "pies", "Jamnik", date(2022, 1, 1), owner.owner_id)
     doctor = Doctor(1, "Maja", "Ślimak", "neurolog", "999")
 
+    animal2 = Animal("Azor", "pies", "Maltańczyk", date(2023, 1, 1), owner.owner_id)
+    doctor2 = Doctor(2, "Marek", "Świstak", "chirurg", "710")
+
     clinic.add_owner(owner)
     clinic.add_animal(animal)
     clinic.add_doctor(doctor)
+    clinic.add_animal(animal2)
+    clinic.add_doctor(doctor2)
 
     appointment = Appointment(animal.animal_id, doctor.id, date.today())
     clinic.schedule_appointment(appointment)
+    appointment2 = Appointment(animal2.animal_id, doctor2.id, date.today())
+    clinic.schedule_appointment(appointment2)
 
     assert clinic.appointments[0].animal_id == animal.animal_id
     assert clinic.appointments[0].doctor_id == doctor.id
     assert clinic.appointments[0].animal_id == clinic.animals[0].animal_id
+    assert clinic.appointments[1].animal_id == animal2.animal_id
+    assert clinic.appointments[1].doctor_id == doctor2.id
+    assert clinic.appointments[1].animal_id == clinic.animals[1].animal_id
+    assert len(clinic.appointments) == 2
