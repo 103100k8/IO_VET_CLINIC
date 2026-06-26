@@ -95,3 +95,21 @@ def test_full_flow_with_medical_history():
     clinic.add_medical_record(record)
 
     assert len(clinic.records[0].diseases) == 1
+
+def test_appointment_synergy():
+    clinic = Clinic("k8vet", "Poznan")
+
+    owner = Owner(1, "Jan", "Kowalski", "123", "jan@mail.com")
+    animal = Animal("Ciapek", "pies", "Jamnik", date(2022, 1, 1), owner.owner_id)
+    doctor = Doctor(1, "Maja", "Ślimak", "neurolog", "999")
+
+    clinic.add_owner(owner)
+    clinic.add_animal(animal)
+    clinic.add_doctor(doctor)
+
+    appointment = Appointment(animal.animal_id, doctor.id, date.today())
+    clinic.schedule_appointment(appointment)
+
+    assert clinic.appointments[0].animal_id == animal.animal_id
+    assert clinic.appointments[0].doctor_id == doctor.id
+    assert clinic.appointments[0].animal_id == clinic.animals[0].animal_id
